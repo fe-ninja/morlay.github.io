@@ -22,9 +22,12 @@ module.exports = function(grunt) {
 
 
 
+
+
     // 配置
     grunt.initConfig({
         pkg: grunt.file.readJSON('package.json'),
+
 
         // 合并压缩 less 文件
         // 文档 https://github.com/gruntjs/grunt-contrib-less

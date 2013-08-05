@@ -1,11 +1,13 @@
-$(document).ready(function() {
+requirejs.config(requirejsConfig);
+
+requirejs(["jquery"], function($) {
 
     var ContentMenu = function(contentId, menuLevel) {
         this.contentId = contentId;
         this.contents = [];
         this.menuLevel = menuLevel;
         this.menuLevelTags = ['h2', 'h3', 'h4', 'h5', 'h6'];
-    }
+    };
     ContentMenu.prototype.bulidIn = function(selectorString) {
         if (this.menuLevel > 0 && this.menuLevel < 6) {
             var levelNeed = this.menuLevelTags.slice(0, this.menuLevel);
@@ -28,10 +30,10 @@ $(document).ready(function() {
             if (curLevel != 0) {
                 html += '</ul>';
             }
-            console.log(html);
+            // console.log(html);
             $(selectorString).prepend('<ul id="content-menu">' + html + '</ul>');
         }
-    }
+    };
     ContentMenu.prototype.getMenuItem = function(levelNeed) {
         var pointer = this;
         $(levelNeed.join(), pointer.contentId).each(function(index, item) {
@@ -56,17 +58,20 @@ $(document).ready(function() {
             }
             contentsItem.name = $(item).text();
             contentsItem.id = "menu-" + index;
-            $(item).addClass('menu-index-'+ contentsItem.levelIndex);
+            $(item).addClass('menu-index-' + contentsItem.levelIndex);
             pointer.contents.push(contentsItem);
             item.id = "menu-" + index;
         });
-    }
+    };
 
-    var articleMenu = new ContentMenu('.article-content', 2);
-    articleMenu.bulidIn('.site-main');
+    $(function() {
+        var articleMenu = new ContentMenu('.article-content', 2);
+        articleMenu.bulidIn('.site-main');
 
-    //添加Google code Hight需要的class
-    $('pre').addClass('prettyprint'); 
-    window.prettyPrint && prettyPrint()
-
+        requirejs(["google-code-prettify"], function(prettyPrint) {
+            //添加Google code Hight需要的class
+            $('pre').addClass('prettyprint');
+            prettyPrint.prettyPrint();
+        });
+    });
 });
