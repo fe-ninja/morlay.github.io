@@ -1,0 +1,40 @@
+---
+layout: default
+---
+
+<article class="article">
+    <hgroup class="article-meta">
+        <h1 class="article-title">
+            {{ page.title }}
+        </h1>
+
+
+			<span class="article-date">
+				{{ page.date | date_to_long_string }}
+			</span>
+            <!-- 文章分类 -->
+            {% unless page.categories == empty %}
+        <ul class="article-categories">
+            <i class="icon-suitcase"></i>
+            {% assign categories_list = page.categories %}
+            {% include snippets/categories_list %}
+        </ul>
+        {% endunless %}
+        <!-- 文章标签 -->
+        {% unless page.tags == empty %}
+        <ul class="article-tags">
+            <i class="icon-tags"></i>
+            {% assign tags_list = page.tags %}
+            {% include snippets/tags_list %}
+        </ul>
+        {% endunless %}
+    </hgroup>
+    <div class="article-content">
+        {{ content }}
+    </div>
+</article>
+{% include pagination.html %}
+
+
+{% include base-scripts.html %}
+<script src="/assets/js/post.js"></script>

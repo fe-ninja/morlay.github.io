@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en">
+  {% include head.html %}
+<body>
+  <div class="main-wrapper">
+  <header class="header">
+    <h1 class="site-title">
+      <a href="/">{{ site.title }}</a>
+    </h1>
+    <nav class="nav-pages">
+      <ul>
+        <li>
+          <a href="/">Blog</a>
+        </li>
+        <li>
+          <a href="{{ BASE_PATH }}{{ site.archive_path }}">Archive</a>
+        </li>
+      </ul>
+    </nav>
+  </header>
+  <div class="site-main">{{ content }}</div>
+  <footer class="footer">
+    <p>
+      &copy; copyright {{ site.author.name }}. All Rights Reserved. 
+       With help from
+      <a target="_blank" href="//github.com">github</a>
+      and
+      <a target="_blank" href="//jekyllrb.com">jekyll</a>.
+    </p>
+  </footer>
+  </div>
+</body>
+</html>
