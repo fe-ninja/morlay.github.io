@@ -137,5 +137,5 @@ module.exports = function(grunt) {
     // 比如 `grunt watch` 监控文件实时执行任务
 
 
-    grunt.registerTask('prePo', ['clean:release', 'less:development', 'copy', 'clean:build']);
+    grunt.registerTask('prePo', ['less:development', 'copy', 'clean:build']);
 };
