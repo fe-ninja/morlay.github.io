@@ -1,5 +1,6 @@
 requirejs.config(requirejsConfig);
 
+
 requirejs(["jquery"], function($) {
 
     var ContentMenu = function(contentId, menuLevel) {
