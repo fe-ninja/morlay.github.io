@@ -50,3 +50,10 @@ _site/
 
 # node
 node_modules/
+
+
+# develop files
+
+__src/
+__dest/
+__base/
