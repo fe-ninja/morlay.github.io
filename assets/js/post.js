@@ -65,6 +65,22 @@ requirejs(["jquery"], function($) {
         });
     };
 
+    $('.article-content').append($('<div id="disqus_thread"/>'));
+
+    function loadDisqus() {
+        // http://docs.disqus.com/help/2/
+        window.disqus_shortname = 'morlay';
+
+        // http://docs.disqus.com/developers/universal/
+        (function() {
+            var dsq = document.createElement('script');
+            dsq.type = 'text/javascript';
+            dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    }
+
     $(function() {
         var articleMenu = new ContentMenu('.article-content', 2);
         articleMenu.bulidIn('.site-main');
