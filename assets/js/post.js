@@ -81,6 +81,8 @@ requirejs(["jquery"], function($) {
         })();
     }
 
+    loadDisqus();
+
     $(function() {
         var articleMenu = new ContentMenu('.article-content', 2);
         articleMenu.bulidIn('.site-main');
